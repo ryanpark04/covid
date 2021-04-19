@@ -11,7 +11,13 @@ app = Flask(__name__)
 
 @app.route('/search', methods=['GET', 'POST'])
 def search():
-    url = "https://vaccinefinder.org/results/?zipcode=90210"
+
+    data = request.get_json()
+    zipcode = data['zipcode']
+
+    url = "https://vaccinefinder.org/results/?zipcode=" + zipcode
+
+    print(url)
 
     driver = webdriver.Chrome('./chromedriver/chromedriver.exe')
     driver.get(url)
@@ -44,6 +50,8 @@ def search():
         availability = availability.decode_contents()
 
         results.append({ "name": name, "address": address[0], "cityInfo": address[1], "distance": distance, "availibility": availability })
+
+    print(json.dumps(results, indent=4))
 
     return json.dumps(results)
 
