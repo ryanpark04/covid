@@ -4,10 +4,10 @@ const LocationItem = props => {
     console.log()
     return (
         <div className="item">
-            <i className="map marker icon"></i>
-            <div className="content">
-                <div className="header">{props.image.name}</div>
-                <div className="description">{props.image.address}  •  {props.image.cityInfo}</div>
+            <div className="ui segment">
+                <div> {props.data.name} <span style={{ float: "right" }}> {props.data.availability} </span></div>
+                <br/>
+                <div>{props.data.address}  •  {props.data.cityInfo} <span style={{ float: "right" }}> {props.data.distance} </span></div>
             </div>
         </div>
     );
