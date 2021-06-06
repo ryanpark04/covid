@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SearchBox extends React.Component {
+class SearchBar extends React.Component {
     state = { term: '' }
 
     onFormSubmit = event => {
@@ -22,4 +22,4 @@ class SearchBox extends React.Component {
     }
 }
 
-export default SearchBox;
+export default SearchBar;
